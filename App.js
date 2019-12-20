@@ -24,7 +24,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+import Start from './screens/Start';
+
+const App = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -111,4 +113,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Start;
