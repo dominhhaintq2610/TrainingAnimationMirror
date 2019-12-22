@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Icon from 'react-native-vector-icons';
 
 import ListFunctions from '../components/start/list';
 
@@ -24,12 +25,16 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: 'center',
         marginTop: 50,
+        marginHorizontal: 28,
+        paddingVertical: 8,
+        borderBottomWidth: 1,
+        borderBottomColor: "gray",
     },
     page_title: {
-        color: "blue",
+        color: "red",
         fontSize: 30,
         fontWeight: "bold",
-        fontStyle: "italic",
-        fontFamily: "monospace",
+        // fontStyle: "italic",
+        // fontFamily: "monospace",
     },
 });

@@ -1,19 +1,37 @@
 import React from 'react';
-import { StyleSheet, View, Text, FlatList } from 'react-native';
+import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default class List extends React.Component {
     data = [
         {
             id: '1',
             title: 'Animate Color',
-        }
+        },
+        {
+            id: '2',
+            title: 'Animate Size',
+        },
+        {
+            id: '3',
+            title: 'Animate Position',
+        },
+        {
+            id: '4',
+            title: 'Demo',
+        },
+        {
+            id: '5',
+            title: 'Demo',
+        },
     ];
 
     renderItem = ({ title }) => {
         return (
-            <View style={styles.item}>
+            <TouchableOpacity style={styles.item}>
                 <Text style={styles.title}>{title}</Text>
-            </View>
+                <Icon size={24} color="black" name="angle-right" />
+            </TouchableOpacity>
         );
     }
 
@@ -31,12 +49,15 @@ export default class List extends React.Component {
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: 'blue',
-        padding: 20,
-        marginVertical: 8,
-        marginHorizontal: 16,
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal: 20,
+        paddingVertical: 16,
+        marginHorizontal: 8,
     },
     title: {
-        color: 'white',
+        color: 'black',
+        fontSize: 18,
     }
 });
