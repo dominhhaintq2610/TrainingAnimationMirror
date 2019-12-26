@@ -25,6 +25,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Start from './screens/Start';
+import AppContainer from './route';
 
 const App = () => {
   return (
@@ -113,4 +114,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Start;
+export default AppContainer;

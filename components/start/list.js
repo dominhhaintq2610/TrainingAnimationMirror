@@ -27,8 +27,11 @@ export default class List extends React.Component {
     ];
 
     renderItem = ({ title }) => {
+        const { navigation } = this.props;
+        console.log(navigation);
         return (
-            <TouchableOpacity style={styles.item}>
+            <TouchableOpacity style={styles.item}
+                onPress={() => { navigation.navigate('AnimationColor') }}>
                 <Text style={styles.title}>{title}</Text>
                 <Icon size={24} color="black" name="angle-right" />
             </TouchableOpacity>
@@ -39,7 +42,7 @@ export default class List extends React.Component {
         return (
             <FlatList
                 data={this.data}
-                renderItem={({item}) => this.renderItem(item)}
+                renderItem={({ item }) => this.renderItem(item)}
                 keyExtractor={item => item.id}
             >
             </FlatList>
