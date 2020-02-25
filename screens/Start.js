@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
     },
     page_title: {
-        color: "blue",
+        color: "black",
         fontSize: 30,
         fontWeight: "bold",
         fontStyle: "italic",

@@ -5,7 +5,7 @@ export default class List extends React.Component {
     data = [
         {
             id: '1',
-            title: 'Animate Color',
+            title: 'Game Engine',
         }
     ];
 
@@ -31,7 +31,7 @@ export default class List extends React.Component {
 
 const styles = StyleSheet.create({
     item: {
-        backgroundColor: 'blue',
+        backgroundColor: 'black',
         padding: 20,
         marginVertical: 8,
         marginHorizontal: 16,

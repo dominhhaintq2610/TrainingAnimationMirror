@@ -25,6 +25,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Start from './screens/Start';
+import RNGE from './screens/RNGE';
 
 const App = () => {
   return (
@@ -113,4 +114,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Start;
+// export default Start;
+export default RNGE;
