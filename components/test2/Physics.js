@@ -4,8 +4,15 @@ const Physics = (entities, { touches, time }) => {
     let engine = entities.physics.engine;
     let bird = entities.bird.body;
 
+    let hadTouches = false;
     touches.filter(t => t.type === "press").forEach(t => {
-        Matter.Body.applyForce( bird, bird.position, {x: 0.00, y: -0.5});
+        console.log(bird.position);
+        hadTouches = true;
+        // Matter.Body.applyForce( bird, bird.position, {x: 0.00, y: -1});
+        Matter.Body.setVelocity( bird, {
+            x: bird.velocity.x,
+            y: -10
+        });
     });
 
     for(let i=1; i<=4; i++){
