@@ -26,6 +26,8 @@ import {
 
 import Start from './screens/Start';
 import RNGE from './screens/RNGE';
+import Test1 from './screens/Test1';
+import Test2 from './screens/Test2';
 
 const App = () => {
   return (
@@ -115,4 +117,4 @@ const styles = StyleSheet.create({
 });
 
 // export default Start;
-export default RNGE;
+export default Test2;
