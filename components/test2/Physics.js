@@ -1,5 +1,8 @@
 import Matter from "matter-js";
 
+let tick = 0;
+let pose = 0;
+
 const Physics = (entities, { touches, time }) => {
     let engine = entities.physics.engine;
     let bird = entities.bird.body;
@@ -24,6 +27,15 @@ const Physics = (entities, { touches, time }) => {
     }
 
     Matter.Engine.update(engine, time.delta);
+
+    tick++;
+    if (tick % 10 === 0) {
+        pose++;
+        if (pose > 3) {
+            pose = 1;
+        }
+        entities.bird.pose = pose;
+    }
 
     return entities;
 };

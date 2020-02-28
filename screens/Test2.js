@@ -65,7 +65,7 @@ export default class App extends Component {
 
         return {
             physics: { engine: engine, world: world },
-            bird: { body: bird, size: [50, 50], color: 'red', renderer: Bird },
+            bird: { body: bird, pose: 1, size: [50, 50], color: 'red', renderer: Bird },
             floor: { body: floor, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
             ceiling: { body: ceiling, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
             pipe1: { body: pipe1, size: [Constants.PIPE_WIDTH, pipe1Height], color: "green", renderer: Wall },
