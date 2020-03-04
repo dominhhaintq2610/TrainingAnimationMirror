@@ -14,7 +14,7 @@ const Physics = (entities, { touches, time }) => {
         // Matter.Body.applyForce( bird, bird.position, {x: 0.00, y: -1});
         Matter.Body.setVelocity( bird, {
             x: bird.velocity.x,
-            y: -10
+            y: -7
         });
     });
 

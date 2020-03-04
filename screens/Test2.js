@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, Text, View, StatusBar, Alert, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, StatusBar, Alert, TouchableOpacity, Image } from 'react-native';
 import Matter from "matter-js";
 import { GameEngine } from "react-native-game-engine";
 import Bird from '../components/test2//Bird';
 import Constants from '../components/test2/Constants';
 import Physics from '../components/test2/Physics';
 import Wall from '../components/test2/Wall';
+import Floor from '../components/test2/Floor';
+import Images from '../assets/test2/Images';
 
 export const randomBetween = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -55,8 +57,24 @@ export default class App extends Component {
         let pipe3 = Matter.Bodies.rectangle(Constants.MAX_WIDTH * 2 - (Constants.PIPE_WIDTH / 2), pipe3Height / 2, Constants.PIPE_WIDTH, pipe3Height, { isStatic: true });
         let pipe4 = Matter.Bodies.rectangle(Constants.MAX_WIDTH * 2 - (Constants.PIPE_WIDTH / 2), Constants.MAX_HEIGHT - (pipe4Height / 2), Constants.PIPE_WIDTH, pipe4Height, { isStatic: true });
 
+        let floor1 = Matter.Bodies.rectangle(
+            Constants.MAX_WIDTH / 2,
+            Constants.MAX_HEIGHT - 25,
+            Constants.MAX_WIDTH + 4,
+            50,
+            { isStatic: true }
+        );
 
-        Matter.World.add(world, [bird, floor, ceiling, pipe1, pipe2, pipe3, pipe4]);
+        let floor2 = Matter.Bodies.rectangle(
+            Constants.MAX_WIDTH + (Constants.MAX_WIDTH / 2),
+            Constants.MAX_HEIGHT - 25,
+            Constants.MAX_WIDTH + 4,
+            50,
+            { isStatic: true }
+        );
+
+        Matter.World.add(world, [bird, floor1, floor2, ceiling, pipe1, pipe2, pipe3, pipe4]);
+        // Matter.World.add(world, [bird, floor1, ceiling, pipe1, pipe2, pipe3, pipe4]);
 
         Matter.Events.on(engine, 'collisionStart', (event) => {
             var pairs = event.pairs;
@@ -66,7 +84,8 @@ export default class App extends Component {
         return {
             physics: { engine: engine, world: world },
             bird: { body: bird, pose: 1, size: [50, 50], color: 'red', renderer: Bird },
-            floor: { body: floor, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
+            floor1: { body: floor1, renderer: Floor },
+            floor2: { body: floor2, renderer: Floor },
             ceiling: { body: ceiling, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
             pipe1: { body: pipe1, size: [Constants.PIPE_WIDTH, pipe1Height], color: "green", renderer: Wall },
             pipe2: { body: pipe2, size: [Constants.PIPE_WIDTH, pipe2Height], color: "green", renderer: Wall },
@@ -94,6 +113,7 @@ export default class App extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Image source={Images.background} style={styles.backgroundImage} resizeMode="stretch" />
                 <GameEngine
                     ref={(ref) => { this.gameEngine = ref; }}
                     style={styles.gameContainer}
@@ -117,6 +137,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
+    },
+    backgroundImage: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        width: Constants.MAX_WIDTH,
+        height: Constants.MAX_HEIGHT
     },
     gameContainer: {
         position: 'absolute',
