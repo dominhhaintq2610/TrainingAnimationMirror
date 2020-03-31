@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Image } from "react-native";
-import Images from "../../assets/test2/Images";
+
 
 export default class Floor extends Component {
     render() {
