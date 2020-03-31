@@ -86,7 +86,7 @@ export default class App extends Component {
             bird: { body: bird, pose: 1, size: [50, 50], color: 'red', renderer: Bird },
             floor1: { body: floor1, renderer: Floor },
             floor2: { body: floor2, renderer: Floor },
-            ceiling: { body: ceiling, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
+            // ceiling: { body: ceiling, size: [Constants.MAX_WIDTH, 50], color: "green", renderer: Wall },
             pipe1: { body: pipe1, size: [Constants.PIPE_WIDTH, pipe1Height], color: "green", renderer: Wall },
             pipe2: { body: pipe2, size: [Constants.PIPE_WIDTH, pipe2Height], color: "green", renderer: Wall },
             pipe3: { body: pipe3, size: [Constants.PIPE_WIDTH, pipe3Height], color: "green", renderer: Wall },
